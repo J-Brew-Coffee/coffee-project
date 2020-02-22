@@ -3,8 +3,19 @@
 function renderCoffee(coffee) {
     var html = '<ul class="coffee list-group">';
     html += '<li class="d-none">' + coffee.id + '</li>';
-    html += '<li class="list-group-item d-flex justify-content-between align-items-center cta-item item-text">' + coffee.name ;
-    html += '<span class="badge badge-primary badge-pill">' + coffee.roast + '</span>'+ '</li>';
+    html += '<li class="list-group-item d-flex justify-content-between align-items-center cta-item item-text font-weight-bold">' + coffee.name ;
+
+    switch(coffee.roast) {
+        case 'light':
+            html += '<img src="img/light-roast.png" style="height: 16px">';
+            break;
+        case 'medium':
+            html += '<img src="img/medium-roast.png" style="height: 16px">';
+            break;
+        case 'dark':
+            html += '<img src="img/dark-roast.png" style="height: 16px">';
+    }
+    // html += '<span class="badge badge-primary badge-pill">' + coffee.roast + '</span>'+ '</li>';
     html += '</ul>';
 
     return html;
@@ -50,6 +61,23 @@ function updateInputCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
+function addToCoffees(e) {
+    e.preventDefault(); // don't submit the form, we just want to update the data
+    var addCoffeeName = document.querySelector('#add-coffee-name').value;
+    var addCoffeeRoast = document.querySelector('#add-coffee-roast').value;
+
+    coffees.push({
+        id: coffees.length + 1,
+        name: addCoffeeName,
+        roast: addCoffeeRoast
+    });
+
+    localStorage.setItem('coffees', JSON.stringify(coffees));
+    coffeesArray = JSON.parse(localStorage.getItem('coffees'));
+
+    tbody.innerHTML = renderCoffees(coffeesArray);
+}
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
@@ -69,12 +97,13 @@ var coffees = [
 ];
 
 var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 var inputSelection = document.querySelector('#input-selection');
-
-tbody.innerHTML = renderCoffees(coffees);
+var addCoffee = document.querySelector('#add-coffee');
 
 roastSelection.addEventListener('change', updateCoffees);
 inputSelection.addEventListener('keyup', updateInputCoffees);
-submitButton.addEventListener('click', updateCoffees);
+addCoffee.addEventListener('click', addToCoffees);
+
+// tbody.innerHTML = renderCoffees(coffees);
+var coffeesArray = localStorage.getItem('coffees') ? tbody.innerHTML = renderCoffees(JSON.parse(localStorage.getItem('coffees'))) : tbody.innerHTML = renderCoffees(coffees);
