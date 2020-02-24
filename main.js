@@ -35,8 +35,10 @@ function updateCoffees(e) {
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
 
+    coffeesArray = localStorage.getItem('coffees') ? JSON.parse(localStorage.getItem('coffees')) : coffees;
+
     if(selectedRoast !== 'all') {
-        coffees.filter(function(coffee) {
+        coffeesArray.filter(function(coffee) {
             if(coffee.roast.match(selectedRoast)) {
                 filteredCoffees.push(coffee);
             }
@@ -44,7 +46,7 @@ function updateCoffees(e) {
 
         tbody.innerHTML = renderCoffees(filteredCoffees);
     } else {
-        tbody.innerHTML = renderCoffees(coffees);
+        tbody.innerHTML = renderCoffees(coffeesArray);
     }
 }
 
@@ -53,7 +55,10 @@ function updateInputCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = inputSelection.value.toLowerCase();
     var filteredCoffees = [];
-    coffees.filter(function(coffee) {
+
+    coffeesArray = localStorage.getItem('coffees') ? JSON.parse(localStorage.getItem('coffees')) : coffees;
+
+    coffeesArray.filter(function(coffee) {
         if(coffee.name.toLowerCase().match(selectedRoast) || coffee.roast.toLowerCase().match(selectedRoast)) {
             filteredCoffees.push(coffee);
         }
