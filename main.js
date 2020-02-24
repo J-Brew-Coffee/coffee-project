@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 function renderCoffee(coffee) {
     var html = '<ul class="coffee list-group">';
@@ -105,5 +105,8 @@ roastSelection.addEventListener('change', updateCoffees);
 inputSelection.addEventListener('keyup', updateInputCoffees);
 addCoffee.addEventListener('click', addToCoffees);
 
+
 // tbody.innerHTML = renderCoffees(coffees);
 var coffeesArray = localStorage.getItem('coffees') ? tbody.innerHTML = renderCoffees(JSON.parse(localStorage.getItem('coffees'))) : tbody.innerHTML = renderCoffees(coffees);
+
+

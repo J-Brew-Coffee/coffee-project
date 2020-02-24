@@ -70,21 +70,42 @@
                             <input class="form-control " type="text" id="input-selection" name="input-selection">
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <select class="form-control" id="add-coffee-roast">
-                                <option>all</option>
-                                <option>light</option>
-                                <option>medium</option>
-                                <option>dark</option>
-                            </select>
-                            <input type="text" class="form-control" id="add-coffee-name" name="add-coffee-name">
-                            <button class="btn cta py-2 mt-2 btn-block" id="add-coffee">Submit</button>
+
+
+                    <button type="button" class="btn btn-primary p-1 m-1" data-toggle="modal" data-target="#exampleModal">
+                       Add Custom Coffee
+                    </button>
+
+                <!--                modal-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add Your Own Coffee!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <select class="form-control" id="add-coffee-roast">
+                                            <option>all</option>
+                                            <option>light</option>
+                                            <option>medium</option>
+                                            <option>dark</option>
+                                        </select>
+                                        <input type="text" class="form-control" id="add-coffee-name" name="add-coffee-name">
+                                        <button class="btn cta py-2 mt-2 btn-block" id="add-coffee" >Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
+                </div>
                 </form>
-
-
+                <!--modal-->
                 <div id="filterBox" class="intro-text left-0 text-center bg-faded p-2 rounded overflow-auto w-100 mt-4">
                     <div id="coffees"></div>
                 </div>
@@ -104,10 +125,10 @@
                         <span class="section-heading-lower">To You</span>
                     </h2>
                     <p class="mb-0">When you walk into our shop to start your day, we are dedicated to providing you
-                        with friendly service, a welcoming atmosphere, and above all else, excellent products made with
-                        the highest quality ingredients. Well, we don't actually have any coffee here at J-Brew, but we
+                        with friendly service, a welcoming atmosphere, and above all else, the idea of excellent products made with
+                        the highest quality ingredients. You see, we don't actually have any coffee here at J-Brew, but we
                         do have a beautiful list of what we could serve. If you are not satisfied, please let us know
-                        and we will do whatever we can to make things right!</p>
+                        and we will probably not do anything about it because this is a fake business!</p>
                 </div>
             </div>
         </div>
