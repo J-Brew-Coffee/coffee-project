@@ -134,6 +134,7 @@ p {
         width: 60%;
         margin-top: 3rem;
         position: absolute;
+
     }
     .intro .intro-text .intro-button {
         width: 100%;
@@ -146,6 +147,7 @@ p {
 @media (min-width: 1200px) {
     .intro .intro-text {
         width: 50%;
+
     }
 }
 
@@ -267,4 +269,32 @@ p {
 }
 #filterBox {
     height: 22.25rem;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+li {
+    /*animation: 0.5s ease-out 0s 1 slideInFromLeft;*/
+    text-shadow: 1px 1px 3px #323232;
+}
+li:hover {
+    background-color:lightgoldenrodyellow;
+    transition:.5s;
+}
+.btn, .form-control {
+    text-shadow: 1px 1px 3px #323232;
+    font-family:Raleway, serif ;
+    color:black;
+
+}
+.coffee-video {
+    z-index: -1;
+    position:absolute;
+box-sizing:border-box;
 }

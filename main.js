@@ -3,7 +3,7 @@
 function renderCoffee(coffee) {
     var html = '<ul class="coffee list-group">';
     html += '<li class="d-none">' + coffee.id + '</li>';
-    html += '<li class="list-group-item d-flex justify-content-between align-items-center cta-item item-text font-weight-bold">' + coffee.name ;
+    html += '<li class="list-group-item d-flex justify-content-between align-items-center cta-item item-text font-weight-bold ">' + coffee.name ;
 
     switch(coffee.roast) {
         case 'light':
